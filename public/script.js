@@ -1,6 +1,7 @@
 const gameBoard = document.getElementById('game-board');
 const keyboard = document.getElementById('keyboard');
 const rows = document.querySelectorAll('.row');
+const themeToggle = document.getElementById('theme-toggle');
 
 // Словарь пятибуквенных слов
 const dictionary = [
@@ -33,6 +34,11 @@ keyboard.addEventListener('click', (e) => {
             currentTile++;
         }
     }
+});
+
+// Переключение темы
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
 });
 
 function checkWord() {

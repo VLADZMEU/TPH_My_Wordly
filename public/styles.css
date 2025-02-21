@@ -1,3 +1,4 @@
+/* Основные стили для темной темы (по умолчанию) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121213;
@@ -8,6 +9,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -22,6 +24,93 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+/* Стили для светлой темы */
+body.light-theme {
+    background-color: #f4f4f4;
+    color: #000000;
+}
+
+body.light-theme h1 {
+    color: #000000;
+}
+
+body.light-theme .tile {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #d3d6da;
+}
+
+body.light-theme .tile[data-state="correct"] {
+    background-color: #6aaa64; /* Зеленый */
+    border-color: #6aaa64;
+    color: #ffffff;
+}
+
+body.light-theme .tile[data-state="present"] {
+    background-color: #c9b458; /* Желтый */
+    border-color: #c9b458;
+    color: #ffffff;
+}
+
+body.light-theme .tile[data-state="absent"] {
+    background-color: #787c7e; /* Серый */
+    border-color: #787c7e;
+    color: #ffffff;
+}
+
+body.light-theme #keyboard {
+    background-color: #d3d6da;
+}
+
+body.light-theme .keyboard-row button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #d3d6da;
+}
+
+body.light-theme .keyboard-row button[data-state="correct"] {
+    background-color: #6aaa64; /* Зеленый */
+    border-color: #6aaa64;
+    color: #ffffff;
+}
+
+body.light-theme .keyboard-row button[data-state="present"] {
+    background-color: #c9b458; /* Желтый */
+    border-color: #c9b458;
+    color: #ffffff;
+}
+
+body.light-theme .keyboard-row button[data-state="absent"] {
+    background-color: #787c7e; /* Серый */
+    border-color: #787c7e;
+    color: #ffffff;
+}
+
+/* Кнопка смены темы */
+#theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #818384;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: #6a6a6c;
+}
+
+#theme-toggle:active {
+    background-color: #5a5a5c;
 }
 
 /* Игровое поле */
@@ -51,7 +140,7 @@ h1 {
     background-color: #121213;
     color: #ffffff;
     border-radius: 5px;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .tile[data-state="correct"] {
@@ -77,6 +166,7 @@ h1 {
     padding: 10px;
     background-color: #1a1a1b;
     border-radius: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .keyboard-row {
@@ -107,7 +197,6 @@ h1 {
     font-size: 0.9rem;
 }
 
-/* Стили для клавиш клавиатуры с разными состояниями */
 .keyboard-row button[data-state="correct"] {
     background-color: #538d4e; /* Зеленый */
     border-color: #538d4e;
