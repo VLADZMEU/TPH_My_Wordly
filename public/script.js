@@ -1,14 +1,13 @@
+
 const gameBoard = document.getElementById('game-board');
 const keyboard = document.getElementById('keyboard');
 const rows = document.querySelectorAll('.row');
 const tiles = document.querySelectorAll('.tile');
 
-// Загаданное слово (пока статичное)
 const targetWord = "CRANE";
 let currentRow = 0;
 let currentTile = 0;
 
-// Обработка нажатий на клавиатуру
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         const key = e.target.textContent;
@@ -17,6 +16,7 @@ keyboard.addEventListener('click', (e) => {
             if (currentTile > 0) {
                 currentTile--;
                 rows[currentRow].children[currentTile].textContent = '';
+                rows[currentRow].children[currentTile].removeAttribute('data-state');
             }
         } else if (key === 'Enter') {
             if (currentTile === 5) {
@@ -29,7 +29,6 @@ keyboard.addEventListener('click', (e) => {
     }
 });
 
-// Проверка введенного слова
 function checkWord() {
     const guessedWord = Array.from(rows[currentRow].children)
         .map(tile => tile.textContent)
@@ -42,11 +41,11 @@ function checkWord() {
         const letter = tile.textContent;
 
         if (letter === targetWord[i]) {
-            tile.style.backgroundColor = '#6aaa64'; // Зеленый
+            tile.setAttribute('data-state', 'correct'); // Зеленый
         } else if (targetWord.includes(letter)) {
-            tile.style.backgroundColor = '#c9b458'; // Желтый
+            tile.setAttribute('data-state', 'present'); // Желтый
         } else {
-            tile.style.backgroundColor = '#787c7e'; // Серый
+            tile.setAttribute('data-state', 'absent'); // Серый
         }
     }
 
