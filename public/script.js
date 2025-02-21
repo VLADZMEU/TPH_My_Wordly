@@ -2,7 +2,14 @@ const gameBoard = document.getElementById('game-board');
 const keyboard = document.getElementById('keyboard');
 const rows = document.querySelectorAll('.row');
 
-const targetWord = "CRANE";
+// Словарь пятибуквенных слов
+const dictionary = [
+    "CRANE", "APPLE", "HOUSE", "TABLE", "CHAIR", "GLASS", "MOUSE", "TIGER", "LEMON", "GRAPE",
+    "SNAKE", "ZEBRA", "OCEAN", "QUILT", "RADIO", "STONE", "TRAIN", "VIOLA", "WHEAT", "YACHT"
+];
+
+// Выбор случайного слова из словаря
+const targetWord = dictionary[Math.floor(Math.random() * dictionary.length)];
 let currentRow = 0;
 let currentTile = 0;
 
