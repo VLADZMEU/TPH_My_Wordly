@@ -14,6 +14,15 @@ const targetWord = dictionary[Math.floor(Math.random() * dictionary.length)];
 let currentRow = 0;
 let currentTile = 0;
 
+const leafContainer = document.querySelector('.leaf-container');
+
+// Создаем 12 листьев
+for (let i = 0; i < 12; i++) {
+    const leaf = document.createElement('div');
+    leaf.classList.add('leaf');
+    leafContainer.appendChild(leaf);
+}
+
 // Обработка нажатий на клавиатуру
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
