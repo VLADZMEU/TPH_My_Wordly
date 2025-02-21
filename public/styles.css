@@ -45,32 +45,35 @@ body {
     }
 }
 
-/* Позиционируем листья */
-.leaf:nth-child(1) { top: 5%; left: 5%; }
-.leaf:nth-child(2) { top: 10%; left: 80%; }
-.leaf:nth-child(3) { top: 20%; left: 20%; }
-.leaf:nth-child(4) { top: 30%; left: 70%; }
-.leaf:nth-child(5) { top: 40%; left: 10%; }
-.leaf:nth-child(6) { top: 50%; left: 60%; }
-.leaf:nth-child(7) { top: 60%; left: 15%; }
-.leaf:nth-child(8) { top: 70%; left: 75%; }
-.leaf:nth-child(9) { top: 80%; left: 25%; }
-.leaf:nth-child(10) { top: 90%; left: 65%; }
-.leaf:nth-child(11) { top: 20%; left: 50%; }
-.leaf:nth-child(12) { top: 40%; left: 90%; }
-
-/* Контейнер для игры */
-.container {
-    width: 100%;
-    max-width: 500px;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: rgba(18, 18, 19, 0.8); /* Полупрозрачный фон для контейнера */
-    border-radius: 10px;
-    backdrop-filter: blur(5px); /* Добавляем размытие для эффекта стекла */
-    z-index: 1; /* Помещаем контейнер поверх листьев */
+/* Анимация вращения листьев */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
+/* Позиционируем листья и добавляем вращение */
+.leaf:nth-child(1) { top: 5%; left: 5%; animation: float 8s infinite ease-in-out, rotate 20s linear infinite; }
+.leaf:nth-child(2) { top: 10%; left: 80%; animation: float 12s infinite ease-in-out, rotate 25s linear infinite reverse; }
+.leaf:nth-child(3) { top: 20%; left: 20%; animation: float 10s infinite ease-in-out, rotate 15s linear infinite; }
+.leaf:nth-child(4) { top: 30%; left: 70%; animation: float 9s infinite ease-in-out, rotate 30s linear infinite reverse; }
+.leaf:nth-child(5) { top: 40%; left: 10%; animation: float 11s infinite ease-in-out, rotate 18s linear infinite; }
+.leaf:nth-child(6) { top: 50%; left: 60%; animation: float 7s infinite ease-in-out, rotate 22s linear infinite reverse; }
+.leaf:nth-child(7) { top: 60%; left: 15%; animation: float 8s infinite ease-in-out, rotate 20s linear infinite; }
+.leaf:nth-child(8) { top: 70%; left: 75%; animation: float 12s infinite ease-in-out, rotate 25s linear infinite reverse; }
+.leaf:nth-child(9) { top: 80%; left: 25%; animation: float 10s infinite ease-in-out, rotate 15s linear infinite; }
+.leaf:nth-child(10) { top: 90%; left: 65%; animation: float 9s infinite ease-in-out, rotate 30s linear infinite reverse; }
+.leaf:nth-child(11) { top: 20%; left: 50%; animation: float 11s infinite ease-in-out, rotate 18s linear infinite; }
+.leaf:nth-child(12) { top: 40%; left: 90%; animation: float 7s infinite ease-in-out, rotate 22s linear infinite reverse; }
+.leaf:nth-child(13) { top: 10%; left: 30%; animation: float 8s infinite ease-in-out, rotate 20s linear infinite; }
+.leaf:nth-child(14) { top: 60%; left: 50%; animation: float 12s infinite ease-in-out, rotate 25s linear infinite reverse; }
+.leaf:nth-child(15) { top: 30%; left: 40%; animation: float 10s infinite ease-in-out, rotate 15s linear infinite; }
+.leaf:nth-child(16) { top: 70%; left: 20%; animation: float 9s infinite ease-in-out, rotate 30s linear infinite reverse; }
+.leaf:nth-child(17) { top: 50%; left: 80%; animation: float 11s infinite ease-in-out, rotate 18s linear infinite; }
+.leaf:nth-child(18) { top: 80%; left: 60%; animation: float 7s infinite ease-in-out, rotate 22s linear infinite reverse; }
 
 /* Контейнер для игры */
 .container {
@@ -99,7 +102,7 @@ body.light-theme {
 }
 
 body.light-theme h1 {
-    color: #000000;
+    color: #000000; /* Светлый текст "Wordle" в светлой теме */
 }
 
 body.light-theme .tile {

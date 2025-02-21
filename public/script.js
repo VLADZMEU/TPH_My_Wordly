@@ -17,7 +17,7 @@ let currentTile = 0;
 const leafContainer = document.querySelector('.leaf-container');
 
 // Создаем 12 листьев
-for (let i = 0; i < 12; i++) {
+for (let i = 0; i < 18; i++) {
     const leaf = document.createElement('div');
     leaf.classList.add('leaf');
     leafContainer.appendChild(leaf);
