@@ -107,6 +107,22 @@ h1 {
     font-size: 0.9rem;
 }
 
+/* Стили для клавиш клавиатуры с разными состояниями */
+.keyboard-row button[data-state="correct"] {
+    background-color: #538d4e; /* Зеленый */
+    border-color: #538d4e;
+}
+
+.keyboard-row button[data-state="present"] {
+    background-color: #b59f3b; /* Желтый */
+    border-color: #b59f3b;
+}
+
+.keyboard-row button[data-state="absent"] {
+    background-color: #3a3a3c; /* Серый */
+    border-color: #3a3a3c;
+}
+
 .keyboard-row button:hover {
     background-color: #6a6a6c;
 }

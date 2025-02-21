@@ -1,13 +1,12 @@
-
 const gameBoard = document.getElementById('game-board');
 const keyboard = document.getElementById('keyboard');
 const rows = document.querySelectorAll('.row');
-const tiles = document.querySelectorAll('.tile');
 
 const targetWord = "CRANE";
 let currentRow = 0;
 let currentTile = 0;
 
+// Обработка нажатий на клавиатуру
 keyboard.addEventListener('click', (e) => {
     if (e.target.tagName === 'BUTTON') {
         const key = e.target.textContent;
@@ -42,10 +41,13 @@ function checkWord() {
 
         if (letter === targetWord[i]) {
             tile.setAttribute('data-state', 'correct'); // Зеленый
+            updateKeyboard(letter, 'correct');
         } else if (targetWord.includes(letter)) {
             tile.setAttribute('data-state', 'present'); // Желтый
+            updateKeyboard(letter, 'present');
         } else {
             tile.setAttribute('data-state', 'absent'); // Серый
+            updateKeyboard(letter, 'absent');
         }
     }
 
@@ -60,4 +62,16 @@ function checkWord() {
     if (currentRow === 6) {
         alert(`Игра окончена! Загаданное слово: ${targetWord}`);
     }
+}
+
+function updateKeyboard(letter, state) {
+    const keys = keyboard.querySelectorAll('button');
+    keys.forEach(key => {
+        if (key.textContent === letter) {
+            // Если клавиша уже была помечена как "correct", не изменяем её состояние
+            if (key.getAttribute('data-state') !== 'correct') {
+                key.setAttribute('data-state', state);
+            }
+        }
+    });
 }
